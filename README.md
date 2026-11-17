@@ -10,13 +10,15 @@ Agent-driven product management operating system for Claude Code. Runs on a mark
 ```
 Create an empty private git repo (e.g. product-os-workspace), open Claude Code there, run `/workspace-setup`.
 
-Build the foundation from existing documents: drop strategy decks, role descriptions, operating principles, proposal templates, roadmaps, ICP and research docs into `sources/`, then run `/bootstrap`. It drafts strategy, ICP, principles and CLAUDE.md with source citations, adopts your proposal template, optionally seeds ideas, initiatives and decisions, and lists conflicts and open questions. Review and set `status: confirmed` on each strategy file.
+Build the foundation from existing documents: drop strategy decks, role descriptions, operating principles, proposal templates, roadmaps, ICP and research docs into `sources/`, then run `/bootstrap`. It builds the evidence base: the documented as-is strategy with citations, conflicts, role boundaries, CLAUDE.md, your proposal template, optional seeded ideas, initiatives and decisions, and open questions tagged as fact or choice.
+Then run `/strategy` to build a new, consistent strategy from that evidence: diagnosis, where to play, how to win, bets, non-goals, principles. One layer at a time, the agent proposes 2 to 3 evidenced options, you choose. Progress is saved in `strategy/workbench.md`, so you can stop and resume. A coherence check runs before anything is written. Set `status: confirmed` on each strategy file when satisfied.
 Connect MCP servers you use (Jira/Confluence, Amplitude, Superset, Slack, HubSpot, meeting transcripts) so commands can pull data directly.
 
 ## Rhythm
 | When | Command | Purpose |
 |---|---|---|
-| Once, then on new docs | `/bootstrap` | Foundation from existing documents, cited, with open questions |
+| Once, then on new docs | `/bootstrap` | Evidence base from existing documents, cited, with open questions |
+| Once, then yearly or on new evidence | `/strategy [layer]` | Build or revisit a coherent strategy from the evidence, choice by choice |
 | Daily | `/today` | Task list: due routines, to-dos and brief items, prioritized, top items prepared |
 | Anytime | `/task <text>` | Add, finish, snooze or drop tasks and routines in plain language |
 | Daily | `/brief` | What changed, what needs a decision, top 3 |

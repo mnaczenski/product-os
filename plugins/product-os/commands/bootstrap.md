@@ -1,5 +1,5 @@
 ---
-description: Builds the workspace foundation from existing documents: strategy, ICP, principles, templates, and seeded ideas, initiatives and decisions.
+description: Builds the evidence base from existing documents: documented as-is strategy, conflicts, open questions, role boundaries, templates, and seeded ideas, initiatives and decisions. Input for /strategy.
 argument-hint: [optional: folder, Confluence space, Drive folder, or category to focus on]
 ---
 You build the foundation of this product-os workspace from documents that already exist. Focus: $ARGUMENTS (default: everything in sources/ plus any locations the user names).
@@ -15,13 +15,13 @@ Phase 1: Inventory
 Phase 2: Extract (parallel)
 - Delegate each category to the `librarian` subagent with its source IDs. Categories can run in parallel.
 
-Phase 3: Draft the foundation
-- strategy/strategy.md: goals, bets, explicit non-goals.
-- strategy/icp.md: who is ICP, recognizable signals, who is not.
-- strategy/principles.md: operating principles and role boundaries, in the organization's own wording.
+Phase 3: Draft the evidence base
+- foundation/as-is.md: what the sources say today about goals, bets, roadmap, ICP and market, positioning, principles and metrics. Cited, with conflicts side by side. This is the record of the documented strategy, not the new strategy.
+- strategy/principles.md: fill only "Who owns what" with the role boundaries found, in the organization's own wording. Leave the strategic principles to /strategy.
 - CLAUDE.md: fill "Who I work for" and add organization-specific rules found in the sources.
 - templates/idea.md: if a proposal template exists in the sources, replace the generic one with it. If it lacks evidence, hypothesis, success metrics or validation plan, do not change it silently: propose those additions to the user.
-- Set each strategy file to `status: draft`, list its source IDs in frontmatter.
+- Do not write strategy/strategy.md or strategy/icp.md. /strategy builds them with the user.
+- Tag each open question with a type: fact (someone knows the answer), choice (a strategic decision) or unclear.
 
 Phase 4: Seed (optional, ask first)
 - Roadmap and backlog items -> ideas/ or initiatives/ with their current status.
@@ -31,16 +31,16 @@ Phase 4: Seed (optional, ask first)
 
 Phase 5: Review gate
 Present on one screen:
-- Readiness per foundation file: complete, partial, missing
-- Conflicts between sources that need a decision
-- Top 10 open questions from foundation/OPEN-QUESTIONS.md, most impactful first
+- Coverage of foundation/as-is.md per section: complete, partial, missing
+- Where the documented strategy is incoherent: conflicts between sources, bets without goals, roadmap items without a bet
+- Open questions by type, with the fact questions listed so the user can answer them in one go
 - What was seeded, with counts
 
-Ask the user to review and set `status: confirmed` on each strategy file when satisfied. Until then, all commands treat the foundation as provisional.
+Then recommend /strategy to build the new strategy. Choice questions are answered there, layer by layer, not as a list.
 
 Rules:
-- Never invent strategy, targets or decisions. Gaps go to OPEN-QUESTIONS.md.
+- Never invent strategy, targets or decisions here. Gaps go to OPEN-QUESTIONS.md. Building strategy is the job of /strategy.
 - Never copy confidential raw content into files beyond what the foundation needs. Raw documents stay in sources/, which is gitignored.
 - Do not commit. The user decides.
 
-Re-run anytime with new documents: update existing files, never overwrite confirmed content without asking.
+Re-run anytime with new documents: update foundation/as-is.md and the registry, never overwrite confirmed content without asking. If a confirmed strategy exists, list new evidence that challenges it and suggest `/strategy <layer>`.

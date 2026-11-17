@@ -6,7 +6,7 @@ Set up this repository as a product-os workspace.
 1. For each file below: if it already exists, skip it and report it. Otherwise create it with exactly the given content.
 2. Also create signals/<current year>/, signals/.raw/, work/.raw/ and inbox/processed/ (with a .gitkeep each).
 3. Create .gitignore (or append if it exists) with these lines: sources/*, !sources/README.md, inbox/*, !inbox/README.md, signals/.raw/, work/.raw/
-4. Then suggest: put existing documents into sources/ and run /bootstrap to build the foundation. Without documents, fill strategy/ and the top of CLAUDE.md manually.
+4. Then suggest: put existing documents into sources/ and run /bootstrap to build the evidence base, then /strategy to build the strategy with the user. Without documents, run /strategy directly and fill the top of CLAUDE.md manually.
 5. After the foundation: /sources to configure signal and work sources, edit tasks/routines.yml, then /today each morning.
 6. Do not commit. The user decides.
 
@@ -21,9 +21,10 @@ Set up this repository as a product-os workspace.
 - foundation/OPEN-QUESTIONS.md: known gaps; do not fill them with guesses
 - tasks/: routines, to-dos and daily lists of the workspace owner
 - work/digests/: what changed where the org works, linked to bets and ideas
-- strategy/strategy.md: company and product strategy, current bets
+- strategy/strategy.md: diagnosis, where we play, how we win, current bets, non-goals
 - strategy/icp.md: ideal customer profile and how to recognize ICP signals
 - strategy/principles.md: product and UX operating principles, role boundaries
+- foundation/as-is.md: what existing documents said before the current strategy; evidence, not strategy
 
 ## Rules for all agents
 - Outcomes over output. Every idea needs a problem, evidence, hypothesis and success metric.
@@ -32,7 +33,8 @@ Set up this repository as a product-os workspace.
 - Customer evidence must trace to a real source (interview, ticket, RFP, data). Synthetic or inferred evidence is marked [assumption].
 - No evaluation, scoring or ranking of individual people. Work on artifacts and outcomes only.
 - If a strategy file has status `empty` or `draft`, treat it as provisional and say so in any output that depends on it.
-- Foundation statements cite source IDs from foundation/SOURCES.md.
+- Foundation statements cite source IDs from foundation/SOURCES.md. Strategy statements cite a source ID or a dated user choice.
+- Agents may propose strategy options with evidence. Only the user's choices become strategy. Never present a proposal as a decision.
 - Work sources are watched at artifact level only. Never count, rank or compare individuals' activity (commits, edits, time, response speed).
 
 ## Style
@@ -55,8 +57,10 @@ One line per entry. Maintained by product-os commands.
 # Open questions
 Gaps and conflicts found while building the foundation. Answer them to raise the quality of every command.
 
-| # | Question | Affects | Sources involved | Status |
-|---|---|---|---|---|
+Type: fact (someone knows the answer, just ask), choice (a strategic decision, answered in /strategy), park (does not change strategy).
+
+| # | Question | Type | Affects | Sources involved | Status |
+|---|---|---|---|---|---|
 ````
 
 ### File: foundation/SOURCES.md
@@ -66,6 +70,26 @@ Every document the foundation is built from. Workspace files cite these IDs.
 
 | ID | Title | Category | Date | Owner | Location | Status |
 |---|---|---|---|---|---|---|
+````
+
+### File: foundation/as-is.md
+````markdown
+---
+status: empty
+sources: []
+---
+# Documented strategy (as-is)
+What existing documents say, cited. Evidence for /strategy, not the strategy itself.
+
+## Goals and targets
+## Bets, initiatives and roadmap
+## Customers, ICP and market
+## Positioning and competition
+## Principles and ways of working
+## Metrics and baselines
+## Conflicts and incoherence
+| Topic | Position A | Position B | Sources |
+|---|---|---|---|
 ````
 
 ### File: ideas/INDEX.md
@@ -286,6 +310,7 @@ Raw files in this folder are gitignored. Only the extracted foundation is commit
 ````markdown
 ---
 status: empty
+origin:
 sources: []
 confirmed:
 ---
@@ -299,11 +324,13 @@ confirmed:
 ````markdown
 ---
 status: empty
+origin:
 sources: []
 confirmed:
 ---
 # Principles and role boundaries
 ## Product operating principles
+Tie-breakers derived from the strategy, phrased as "we prefer X over Y".
 ## UX operating principles
 ## Who owns what
 | Topic | Owner |
@@ -318,15 +345,46 @@ confirmed:
 ````markdown
 ---
 status: empty
+origin:
 sources: []
 confirmed:
 ---
 # Strategy
-## Company goals (this year)
+## Diagnosis
+The critical challenge we must overcome, and why.
+## Where we play
+Customers, segments, use cases and markets we serve. Details in strategy/icp.md.
+## How we win
+Why customers choose us in that space, and what makes it hard to copy.
 ## Product strategy and current bets
-| Bet | Why | Owner | Success signal |
-|---|---|---|---|
+| Bet | Why (diagnosis link) | Owner | Success signal | Kill criterion | Horizon |
+|---|---|---|---|---|---|
 ## What we explicitly do not do
+## Known tensions
+| Tension | Owner | Revisit |
+|---|---|---|
+````
+
+### File: strategy/workbench.md
+````markdown
+# Strategy workbench
+Working record of /strategy: options considered, choices made, rationale. Resume with /strategy.
+
+| Layer | Status | Choice | Rejected options | Rationale | Date |
+|---|---|---|---|---|---|
+| 0 Triage | open | | | | |
+| 1 Diagnosis | open | | | | |
+| 2 Where to play | open | | | | |
+| 3 How to win | open | | | | |
+| 4 Bets | open | | | | |
+| 5 Non-goals | open | | | | |
+| 6 Principles | open | | | | |
+| 7 Coherence | open | | | | |
+| 8 Write | open | | | | |
+
+## Proposed, not yet confirmed by the user
+## Known tensions
+## Layer notes
 ````
 
 ### File: tasks/.state/README.md
