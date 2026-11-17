@@ -1,0 +1,149 @@
+# Signal source registry. Used by /collect and managed with /sources.
+# Every source starts disabled. Configure, test with "/sources test <id>", then set enabled: true.
+#
+# Fields
+#   id          short unique id, used in signals and state
+#   name        human-readable name
+#   type        mcp | web | folder | manual
+#   tool        mcp: connector to use (e.g. Jira, Slack, HubSpot, Zendesk, Amplitude, Superset, meeting transcripts)
+#               web: search | fetch
+#   query       what to collect, in plain language plus exact filters (JQL, channel names, URLs, paths)
+#   cadence     daily | weekly | monthly
+#   kind        interview | support | sales | rfp | analytics | partner | community | review | competitor | internal
+#   trust       high | medium | low   (how much a single item counts as evidence)
+#   icp_hint    how to decide whether an item comes from an ICP account
+#   owner       who maintains the source
+#   enabled     true | false
+
+sources:
+  - id: icp-interviews
+    name: ICP interviews
+    type: mcp
+    tool: meeting transcripts
+    query: Meetings tagged or titled as customer or ICP interview since last run
+    cadence: weekly
+    kind: interview
+    trust: high
+    icp_hint: Account named in meeting title or notes, match against strategy/icp.md
+    owner: <name>
+    enabled: false
+
+  - id: support-tickets
+    name: Support tickets
+    type: mcp
+    tool: <support tool>
+    query: Tickets tagged as feature request, usability or bug with customer impact, created since last run
+    cadence: weekly
+    kind: support
+    trust: medium
+    icp_hint: Customer plan, segment or account field
+    owner: <name>
+    enabled: false
+
+  - id: sales-feedback
+    name: Sales feedback and lost deals
+    type: mcp
+    tool: HubSpot
+    query: Closed-lost deals with loss reason, and deal notes mentioning missing features, since last run
+    cadence: weekly
+    kind: sales
+    trust: medium
+    icp_hint: Deal segment, company size and industry fields
+    owner: <name>
+    enabled: false
+
+  - id: sales-slack
+    name: Sales and CS Slack channel
+    type: mcp
+    tool: Slack
+    query: Messages in <#channel> that describe customer problems or requests, since last run
+    cadence: daily
+    kind: sales
+    trust: low
+    icp_hint: Account name mentioned in the message
+    owner: <name>
+    enabled: false
+
+  - id: rfps
+    name: RFP requirements
+    type: folder
+    tool: ""
+    query: inbox/rfp/ (new files since last run). Extract requirements we could not fully meet.
+    cadence: weekly
+    kind: rfp
+    trust: high
+    icp_hint: RFPs are ICP unless marked otherwise
+    owner: <name>
+    enabled: false
+
+  - id: feedback-portal
+    name: Idea and feedback portal
+    type: mcp
+    tool: Jira
+    query: "JQL: project = <KEY> AND created >= <last_run>"
+    cadence: weekly
+    kind: internal
+    trust: medium
+    icp_hint: Reporter organization field
+    owner: <name>
+    enabled: false
+
+  - id: product-analytics
+    name: Product analytics anomalies
+    type: mcp
+    tool: Amplitude
+    query: Significant drops or spikes in core journey metrics (first sale, admin setup, extension install) since last run
+    cadence: weekly
+    kind: analytics
+    trust: high
+    icp_hint: Segment by plan or merchant size if available
+    owner: <name>
+    enabled: false
+
+  - id: community
+    name: Developer and merchant community
+    type: web
+    tool: search
+    query: New threads with problems or requests in <community forum URL> and GitHub issues of <repo>, since last run
+    cadence: weekly
+    kind: community
+    trust: low
+    icp_hint: Usually unknown; mark ICP only with clear evidence
+    owner: <name>
+    enabled: false
+
+  - id: reviews
+    name: Public reviews
+    type: web
+    tool: search
+    query: New reviews of our product and extensions on <review sites>, since last run
+    cadence: monthly
+    kind: review
+    trust: low
+    icp_hint: Company size or industry in reviewer profile
+    owner: <name>
+    enabled: false
+
+  - id: competitors
+    name: Competitor releases
+    type: web
+    tool: fetch
+    query: Changelogs and release notes at <competitor URLs>, entries since last run
+    cadence: weekly
+    kind: competitor
+    trust: medium
+    icp_hint: Not applicable
+    owner: <name>
+    enabled: false
+
+  - id: partner-feedback
+    name: Agency and partner feedback
+    type: manual
+    tool: ""
+    query: Ask the user for notes from partner calls since last run
+    cadence: monthly
+    kind: partner
+    trust: medium
+    icp_hint: Partner names the end customer
+    owner: <name>
+    enabled: false

@@ -1,0 +1,13 @@
+{
+  "name": "product-os-marketplace",
+  "owner": { "name": "Moritz" },
+  "description": "Agent-driven product management operating system for Claude Code",
+  "plugins": [
+    {
+      "name": "product-os",
+      "source": "./plugins/product-os",
+      "description": "Signals, work pulse, bets, outcomes, narratives and daily tasks for product leadership",
+      "version": "1.0.0"
+    }
+  ]
+}

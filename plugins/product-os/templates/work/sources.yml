@@ -1,0 +1,68 @@
+# Work source registry: where the product org works. Pulled by /pulse, managed with /sources.
+# Tracks artifacts and their changes, never individual activity. See rules in CLAUDE.md.
+# Every source starts disabled. Configure, test with "/sources test <id>", then enable.
+#
+# Fields
+#   id        short unique id
+#   name      human-readable name
+#   tool      connector: Miro, Confluence, Jira, GitHub, Figma, Google Drive, <roadmap tool>
+#   scope     exactly what to watch: boards, spaces, projects, repos, folders, files
+#   watch     which changes matter (new artifacts, status changes, content changes, releases, decisions)
+#   cadence   daily | weekly | monthly
+#   link_to   how to map changes to workspace items: by idea id, epic key, domain, label
+#   enabled   true | false
+
+sources:
+  - id: roadmap
+    name: Product roadmap
+    tool: <roadmap tool, e.g. Jira Product Discovery or Confluence>
+    scope: <roadmap board, view or page>
+    watch: Items added, removed, re-prioritized or moved between horizons; changed target dates
+    cadence: daily
+    link_to: Idea or epic key in the item, otherwise domain
+    enabled: false
+
+  - id: pm-docs
+    name: PM idea and epic documents
+    tool: Confluence
+    scope: <space key and parent pages for ideas and epics>
+    watch: New idea or epic docs, status changes, changes to problem, metrics or scope sections
+    cadence: daily
+    link_to: Idea id or epic key in the title
+    enabled: false
+
+  - id: discovery-boards
+    name: Discovery boards
+    tool: Miro
+    scope: <boards or space used for discovery, journey maps, workshops>
+    watch: New boards, new clusters or decisions on existing boards, research synthesis
+    cadence: weekly
+    link_to: Board title or tag with domain or idea id
+    enabled: false
+
+  - id: design
+    name: Design files
+    tool: Figma
+    scope: <team, project or files>
+    watch: New or substantially changed designs, files marked ready for review or dev handoff
+    cadence: daily
+    link_to: File or page name with idea id or epic key
+    enabled: false
+
+  - id: epics
+    name: Engineering epics
+    tool: Jira
+    scope: "JQL: project in (<KEYS>) AND issuetype = Epic"
+    watch: New epics, status changes, epics started without a linked approved idea, scope changes
+    cadence: daily
+    link_to: Epic link to idea, otherwise label
+    enabled: false
+
+  - id: releases
+    name: Releases and shipped work
+    tool: GitHub
+    scope: <org/repo list>
+    watch: Releases and release notes, merged changes referencing epics. No per-person statistics.
+    cadence: weekly
+    link_to: Epic key in release notes or PR title
+    enabled: false

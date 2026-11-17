@@ -1,0 +1,70 @@
+# Recurring tasks. Managed with /task, turned into daily lists by /today.
+# Every routine starts disabled. Fill placeholders, then set enabled: true.
+#
+# Fields
+#   id        short unique id
+#   title     what you do, as an instruction to yourself
+#   cadence   daily | weekdays | weekly:<mon..fri> | biweekly:<mon..fri> | monthly:<day> | before:<meeting>
+#   rotate    optional list; one item per occurrence, in order (e.g. PMs, domains)
+#   assist    what the system prepares before you start: a product-os command or a plain instruction
+#   tool      connector the assist needs, if any (e.g. Figma, Jira, Confluence)
+#   minutes   rough time you plan for it
+#   enabled   true | false
+
+routines:
+  - id: brief
+    title: Read the brief and decide the top 3
+    cadence: weekdays
+    assist: /brief
+    tool: ""
+    minutes: 10
+    enabled: true
+
+  - id: figma-updates
+    title: Look into Figma updates
+    cadence: weekdays
+    assist: /pulse design. Highlight designs that touch approved ideas or affect consistency across journeys.
+    tool: Figma
+    minutes: 15
+    enabled: false
+
+  - id: roadmap-challenge
+    title: Challenge one PM roadmap
+    cadence: weekly:tue
+    rotate: [<PM 1>, <PM 2>, <PM 3>, <PM 4>]
+    assist: /challenge on the current roadmap or 6-month priorities of the rotated PM (from the roadmap and pm-docs work sources). Prepare coaching questions, no rewrite.
+    tool: Confluence
+    minutes: 30
+    enabled: false
+
+  - id: open-proposals
+    title: Clear proposals waiting for my decision
+    cadence: weekly:mon
+    assist: List ideas with status proposed and decisions with status proposed, oldest first, with /challenge verdicts if available.
+    tool: ""
+    minutes: 30
+    enabled: false
+
+  - id: feedback-loops
+    title: Close overdue feedback loops
+    cadence: weekly:thu
+    assist: List requests without reply beyond the agreed response time and draft replies with /reply.
+    tool: ""
+    minutes: 20
+    enabled: false
+
+  - id: one-on-one-prep
+    title: Prepare 1:1s
+    cadence: before:1:1
+    assist: /prep for each 1:1 on tomorrow's calendar
+    tool: calendar
+    minutes: 10
+    enabled: false
+
+  - id: state-of-the-unit
+    title: Review State of the Unit draft
+    cadence: monthly:1
+    assist: /update state-of-the-unit
+    tool: ""
+    minutes: 30
+    enabled: false
