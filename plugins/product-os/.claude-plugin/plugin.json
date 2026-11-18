@@ -1,6 +1,6 @@
 {
   "name": "product-os",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Agent-driven product management operating system: signals, bets, outcomes, narratives",
   "author": { "name": "Moritz" },
   "license": "UNLICENSED"

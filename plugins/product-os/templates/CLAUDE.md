@@ -7,7 +7,8 @@
 - foundation/OPEN-QUESTIONS.md: known gaps; do not fill them with guesses
 - tasks/: routines, to-dos and daily lists of the workspace owner
 - work/digests/: what changed where the org works, linked to bets and ideas
-- strategy/strategy.md: diagnosis, where we play, how we win, current bets, non-goals
+- strategy/vision.md: 3 to 5 year target state and indicators
+- strategy/strategy.md: diagnosis, where we play, how we win, horizons H1 to H3 with bets, non-goals
 - strategy/icp.md: ideal customer profile and how to recognize ICP signals
 - strategy/principles.md: product and UX operating principles, role boundaries
 - foundation/as-is.md: what existing documents said before the current strategy; evidence, not strategy

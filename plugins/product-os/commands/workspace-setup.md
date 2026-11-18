@@ -21,7 +21,8 @@ Set up this repository as a product-os workspace.
 - foundation/OPEN-QUESTIONS.md: known gaps; do not fill them with guesses
 - tasks/: routines, to-dos and daily lists of the workspace owner
 - work/digests/: what changed where the org works, linked to bets and ideas
-- strategy/strategy.md: diagnosis, where we play, how we win, current bets, non-goals
+- strategy/vision.md: 3 to 5 year target state and indicators
+- strategy/strategy.md: diagnosis, where we play, how we win, horizons H1 to H3 with bets, non-goals
 - strategy/icp.md: ideal customer profile and how to recognize ICP signals
 - strategy/principles.md: product and UX operating principles, role boundaries
 - foundation/as-is.md: what existing documents said before the current strategy; evidence, not strategy
@@ -350,19 +351,55 @@ sources: []
 confirmed:
 ---
 # Strategy
+Path from today to the vision in strategy/vision.md.
 ## Diagnosis
-The critical challenge we must overcome, and why.
+The critical challenge we must overcome, and the shifts that shape the next years.
 ## Where we play
-Customers, segments, use cases and markets we serve. Details in strategy/icp.md.
+Today and in the vision year. Details in strategy/icp.md.
 ## How we win
-Why customers choose us in that space, and what makes it hard to copy.
-## Product strategy and current bets
-| Bet | Why (diagnosis link) | Owner | Success signal | Kill criterion | Horizon |
-|---|---|---|---|---|---|
+Why customers choose us in that space, what makes it hard to copy, and which capabilities the vision still requires.
+## Horizons
+| Horizon | Period | Mode | End state | Capacity share |
+|---|---|---|---|---|
+| H1 | 0 to 12 months | Commit | | |
+| H2 | 12 to 36 months | Build | | |
+| H3 | 36 months to vision year | Explore | Vision | |
+### H1 bets
+| Bet | Why (diagnosis, H2 link) | Owner | Success signal | Kill criterion |
+|---|---|---|---|---|
+### H2 bets
+| Bet | Hypothesis | Depends on H1 proof | Capability built |
+|---|---|---|---|
+### H3 options
+| Option | Signpost to invest | How we keep it open |
+|---|---|---|
 ## What we explicitly do not do
+| Non-goal | Holds until |
+|---|---|
 ## Known tensions
 | Tension | Owner | Revisit |
 |---|---|---|
+````
+
+### File: strategy/vision.md
+````markdown
+---
+status: empty
+origin:
+vision_year:
+sources: []
+confirmed:
+---
+# Product vision
+## Vision statement
+One sentence: what is true in the vision year.
+## Target state
+What is true for customers, for the business and for the product.
+## Target-state indicators
+| Indicator | Today (source) | Vision year target |
+|---|---|---|
+## Why this vision
+Link to diagnosis and the market and technology shifts it rests on.
 ````
 
 ### File: strategy/workbench.md
@@ -374,13 +411,14 @@ Working record of /strategy: options considered, choices made, rationale. Resume
 |---|---|---|---|---|---|
 | 0 Triage | open | | | | |
 | 1 Diagnosis | open | | | | |
-| 2 Where to play | open | | | | |
-| 3 How to win | open | | | | |
-| 4 Bets | open | | | | |
-| 5 Non-goals | open | | | | |
-| 6 Principles | open | | | | |
-| 7 Coherence | open | | | | |
-| 8 Write | open | | | | |
+| 2 Vision | open | | | | |
+| 3 Where to play | open | | | | |
+| 4 How to win | open | | | | |
+| 5 Horizons | open | | | | |
+| 6 Non-goals | open | | | | |
+| 7 Principles | open | | | | |
+| 8 Coherence | open | | | | |
+| 9 Write | open | | | | |
 
 ## Proposed, not yet confirmed by the user
 ## Known tensions
