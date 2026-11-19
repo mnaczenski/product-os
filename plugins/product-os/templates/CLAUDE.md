@@ -11,6 +11,7 @@
 - strategy/strategy.md: diagnosis, where we play, how we win, horizons H1 to H3 with bets, non-goals
 - strategy/icp.md: ideal customer profile and how to recognize ICP signals
 - strategy/principles.md: product and UX operating principles, role boundaries
+- team/ORG.md: people, reporting lines, who decides what
 - foundation/as-is.md: what existing documents said before the current strategy; evidence, not strategy
 
 ## Rules for all agents
@@ -22,6 +23,7 @@
 - If a strategy file has status `empty` or `draft`, treat it as provisional and say so in any output that depends on it.
 - Foundation statements cite source IDs from foundation/SOURCES.md. Strategy statements cite a source ID or a dated user choice.
 - Agents may propose strategy options with evidence. Only the user's choices become strategy. Never present a proposal as a decision.
+- team/ holds structure only: roles, reporting lines, scope, responsibilities, agreed focus. No ratings or performance data. team/notes/ is local and never quoted in committed files.
 - Work sources are watched at artifact level only. Never count, rank or compare individuals' activity (commits, edits, time, response speed).
 
 ## Style

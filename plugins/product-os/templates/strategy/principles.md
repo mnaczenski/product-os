@@ -9,6 +9,7 @@ confirmed:
 Tie-breakers derived from the strategy, phrased as "we prefer X over Y".
 ## UX operating principles
 ## Who owns what
+Role level. Person-level ownership and reporting lines live in team/ORG.md.
 | Topic | Owner |
 |---|---|
 | WHY and WHAT, priority | PM |

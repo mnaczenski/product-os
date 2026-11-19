@@ -6,8 +6,8 @@ P = pathlib.Path(__file__).resolve().parent.parent / "plugins" / "product-os"
 T = P / "templates"
 steps = [
  "Also create signals/<current year>/, signals/.raw/, work/.raw/ and inbox/processed/ (with a .gitkeep each).",
- "Create .gitignore (or append if it exists) with these lines: sources/*, !sources/README.md, inbox/*, !inbox/README.md, signals/.raw/, work/.raw/",
- "Then suggest: put existing documents into sources/ and run /bootstrap to build the evidence base, then /strategy to build the strategy with the user. Without documents, run /strategy directly and fill the top of CLAUDE.md manually.",
+ "Create .gitignore (or append if it exists) with these lines: sources/*, !sources/README.md, inbox/*, !inbox/README.md, signals/.raw/, work/.raw/, team/notes/",
+ "Then suggest: put existing documents into sources/ and run /bootstrap to build the evidence base, then /strategy to build the strategy with the user, and /team to define people, reporting lines and responsibilities. Without documents, run /strategy directly and fill the top of CLAUDE.md manually.",
  "After the foundation: /sources to configure signal and work sources, edit tasks/routines.yml, then /today each morning.",
 ]
 files = sorted((str(f.relative_to(T)), f.read_text()) for f in T.rglob("*") if f.is_file() and f.suffix in (".md", ".yml", ".yaml", ".json"))

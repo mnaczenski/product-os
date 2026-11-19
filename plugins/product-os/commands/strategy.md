@@ -47,7 +47,7 @@ Save the workbench after every layer so the session can stop and resume anytime.
    - For each horizon, first agree on the end state: what must be true at its end so the next horizon is possible. H3's end state is the vision.
    - H3 (explore): 1 to 3 options, each with the signpost that triggers investment and the cheapest way to keep the option open.
    - H2 (build): 2 to 4 bets as hypotheses, each with the H1 proof it depends on and the capability it builds.
-   - H1 (commit): 3 to 5 bets, each with why (link to diagnosis and H2 end state), owner role, success signal with baseline source or [assumption], kill criterion.
+   - H1 (commit): 3 to 5 bets, each with why (link to diagnosis and H2 end state), owner (a person from team/ORG.md if the roster exists, else a role), success signal with baseline source or [assumption], kill criterion.
    - Investment mix: propose a capacity split across H1, H2 and H3 (e.g. 70/20/10) and compare it with today's actual split from as-is evidence.
    - Map the existing roadmap and backlog from foundation/as-is.md to horizons: keep, change, stop, start. Unmapped work is a choice, not a footnote.
 6. Non-goals: what we will not do, though a reasonable team might. At least one item must hurt. Name non-goals that hold until the vision year and those that hold only for H1.
@@ -58,6 +58,7 @@ Save the workbench after every layer so the session can stop and resume anytime.
 9. Write
    - Write strategy/vision.md, strategy/strategy.md, strategy/icp.md and strategy/principles.md from the workbench. Set `status: draft`, `origin: authored`, list source IDs and the date of each choice in frontmatter.
    - Record major choices (diagnosis, vision, ICP, each H1 bet, investment mix, painful non-goals) in decisions/ via templates/decision.md, status decided, and update decisions/INDEX.md.
+   - If team/ORG.md exists, add each bet and option to its responsibility matrix with the chosen owner and run the /team check.
    - Close answered questions in foundation/OPEN-QUESTIONS.md with a pointer to the workbench or decision.
    - Show a one-screen summary: vision and indicators, diagnosis, where to play, how to win, H1 to H3 with end states, investment mix, non-goals, open [proposed] items, known tensions. Ask the user to set `status: confirmed`.
 

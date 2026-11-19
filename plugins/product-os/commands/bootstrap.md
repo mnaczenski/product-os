@@ -8,7 +8,7 @@ If templates/ does not exist, run the /workspace-setup steps first.
 
 Phase 1: Inventory
 - List documents in sources/. Ask the user whether to also pull from connected tools (e.g. Confluence, Google Drive) and which spaces or folders.
-- Classify each document: strategy, ICP and market, roles and principles, process (operating model, proposal template, feedback process), roadmap and backlog, metrics and OKRs, customer research, competitive, other.
+- Classify each document: strategy, ICP and market, roles, org and principles (org charts, role descriptions), process (operating model, proposal template, feedback process), roadmap and backlog, metrics and OKRs, customer research, competitive, other.
 - Register every document in foundation/SOURCES.md with ID SRC-xx, category, date, owner, location.
 - Show the inventory and ask the user to confirm: which documents are current, which are outdated, which to ignore. Wait for the answer.
 
@@ -18,6 +18,7 @@ Phase 2: Extract (parallel)
 Phase 3: Draft the evidence base
 - foundation/as-is.md: what the sources say today about goals, bets, roadmap, ICP and market, positioning, principles and metrics. Cited, with conflicts side by side. This is the record of the documented strategy, not the new strategy.
 - strategy/principles.md: fill only "Who owns what" with the role boundaries found, in the organization's own wording. Leave the strategic principles to /strategy.
+- team/: if org charts or role descriptions exist, draft team/ORG.md and team/people/ as described in /team, mark entries [proposed] and ask the user to confirm them with /team. Never import performance data.
 - CLAUDE.md: fill "Who I work for" and add organization-specific rules found in the sources.
 - templates/idea.md: if a proposal template exists in the sources, replace the generic one with it. If it lacks evidence, hypothesis, success metrics or validation plan, do not change it silently: propose those additions to the user.
 - Do not write strategy/strategy.md or strategy/icp.md. /strategy builds them with the user.

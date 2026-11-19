@@ -19,6 +19,7 @@ Connect MCP servers you use (Jira/Confluence, Amplitude, Superset, Slack, HubSpo
 |---|---|---|
 | Once, then on new docs | `/bootstrap` | Evidence base from existing documents, cited, with open questions |
 | Once, then yearly or on new evidence | `/strategy [layer]` | Build or revisit vision and horizon strategy from the evidence, choice by choice |
+| Once, then on changes | `/team [change]` | People, roles, reporting lines, scope and who decides what |
 | Daily | `/today` | Task list: due routines, to-dos and brief items, prioritized, top items prepared |
 | Anytime | `/task <text>` | Add, finish, snooze or drop tasks and routines in plain language |
 | Daily | `/brief` | What changed, what needs a decision, top 3 |
@@ -30,7 +31,7 @@ Connect MCP servers you use (Jira/Confluence, Amplitude, Superset, Slack, HubSpo
 | Daily | `/reply <request>` | Close feedback loops, including "we will not do this" |
 | Weekly | `/synthesize` | Cluster signals into ICP-weighted problems |
 | Weekly | `/idea <problem>` | Shape a bet: evidence, hypothesis, metrics, validation |
-| Weekly | `/prep <meeting or 1:1>` | Prep from artifacts, never person scoring |
+| Weekly | `/prep <meeting or person>` | Prep from artifacts, scope and open 1:1 agreements; `/prep <person> after` records agreements |
 | Weekly | `/decide <topic>` | Options, recommendation, recorded decision |
 | Monthly | `/portfolio` | Strategy fit, backlog health, capacity vs bets, drift |
 | Monthly | `/outcome <initiative>` | Results vs metrics defined before build |
@@ -45,6 +46,9 @@ librarian, collector, work-scout, signal-analyst, challenger, metrics-analyst, m
 Defined in `work/sources.yml`: tool, scope, what changes matter, cadence, how to link to ideas and epics. Examples ship disabled: roadmap, PM docs, Miro discovery boards, Figma, Jira epics, GitHub releases. `/pulse` writes a digest per run with changes by bet, drift (work without approved idea or decision), gaps (docs without metrics, handoffs without validation) and unmapped changes.
 
 Artifact level only: no per-person activity, counts or comparisons. This keeps the system out of performance monitoring (BetrVG §87(1) No. 6). If you want to change that, align with the works council first.
+
+## Team
+`/team` defines the org structure in `team/ORG.md` and one file per person in `team/people/`: role, reporting line, scope, decision rights (decides, consulted, informed), agreed focus, 1:1 cadence. Change it in plain language, e.g. `/team Anna now owns checkout`. `/team check` finds areas without an owner or with two, broken reporting lines, and bets without an owner. 1:1 notes live in `team/notes/`, which is gitignored. No ratings or performance data.
 
 ## Tasks
 Routines live in `tasks/routines.yml` (cadence, optional rotation, assist, connector, minutes). To-dos live in `tasks/todo.md`. `/today` builds the daily list in `tasks/log/<date>.md`, capped at 7 items, and prepares the top 3 by running their assist, e.g. a Figma change summary or a `/challenge` of the rotated PM's roadmap.
